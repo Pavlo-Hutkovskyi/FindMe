@@ -6,16 +6,9 @@ import {ModalService} from "./services/modal/modal.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'AngularSite';
-  showModal: boolean = false;
 
-  constructor(private modalService: ModalService) {
-  }
-
-  ngOnInit() {
-    this.modalService.modalState$.subscribe((state: boolean) => {
-      this.showModal = state;
-    });
+  constructor() {
   }
 }
