@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, TemplateRef, ViewChild} from '@angular/core';
 import {IUser} from "../../../assets/models/IUser";
+import {ModalService} from "../../services/modal/modal.service";
 
 @Component({
   selector: 'app-profile',
@@ -8,8 +9,9 @@ import {IUser} from "../../../assets/models/IUser";
 })
 export class ProfileComponent {
   user!: IUser;
+  @ViewChild('contentTemplate') contentTemplate!: TemplateRef<any>;
 
-  constructor() {
+  constructor(private modalService: ModalService) {
     this.user = {
       firstName: "Name",
       lastName: "Surname",
@@ -23,5 +25,9 @@ export class ProfileComponent {
         name: "Lvivska oblast",
       }
     }
+  }
+
+  openModal(contentTemplate: TemplateRef<any>) {
+    this.modalService.openModal(contentTemplate);
   }
 }

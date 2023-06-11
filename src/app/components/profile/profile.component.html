@@ -1,13 +1,16 @@
 <div class="nav-bar">
-  <p>
-    Nav bar
-  </p>
-  <a>
+  <p>Nav bar</p>
+  <a (click)="openModal(contentTemplate)">
     <img src="assets/img/menu-list.svg" alt="menu-list">
   </a>
+  <ng-template #contentTemplate>
+    <!-- Розмітка модального вікна -->
+    <h3>Заголовок</h3>
+    <p>Вміст модального вікна</p>
+  </ng-template>
 </div>
 <div class="profile-card">
-  <img src="assets/img/profile-round.svg">
+  <img src="assets/img/profile-round.svg" alt="profile">
   <p>Ім'я: {{user.firstName}}</p>
   <p>Призвіще: {{user.lastName}}</p>
   <p>Номер телефону: {{user.phoneNumber}}</p>
