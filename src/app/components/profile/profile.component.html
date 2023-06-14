@@ -1,3 +1,4 @@
+<app-spinner *ngIf="advertList.length == 0"></app-spinner>
 <div class="nav-bar">
   <p>Nav bar</p>
   <a (click)="openModal()">
@@ -19,6 +20,10 @@
   <p>Email: {{user.email}}</p>
   <p>Район: {{user.district.name}}</p>
 </div>
-<div class="adverts-list">
-  <app-user-adverts *ngFor="let advert of "></app-user-adverts>
+<div class="slider">
+  <button class="indicator" (click)="swipe()" [class.active]="isMatched" [disabled]="isMatched"></button>
+  <button class="indicator" (click)="swipe()" [class.active]="!isMatched" [disabled]="!isMatched"></button>
+</div>
+<div class="adverts-list" (swipe)="swipe()">
+  <app-user-adverts *ngFor="let advert of getAdvertList()" [advert]="advert"></app-user-adverts>
 </div>

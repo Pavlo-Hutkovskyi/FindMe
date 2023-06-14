@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule, HammerModule} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { UserAdvertsComponent } from './components/user-adverts/user-adverts.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { UserAdvertsComponent } from './components/user-adverts/user-adverts.com
     ProfileComponent,
     ModalComponent,
     UserAdvertsComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HammerModule,
   ],
   providers: [ModalComponent],
   bootstrap: [AppComponent]

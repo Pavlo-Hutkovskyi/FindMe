@@ -24,6 +24,7 @@
   border-radius: 20px;
   width: 90vw;
   height: 45vh;
+  font-size: 1em;
 
   p {
     color: white;
@@ -35,3 +36,40 @@
     width: 90vw;
   }
 }
+
+.adverts-list {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.slider {
+  margin-top: 30px;
+  width: 200px;
+  height: 10px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.indicator {
+  width: 100px;
+  height: 10px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.indicator.active {
+  background-color: #007bff;
+}
+
+.indicator:first-child {
+  left: 0;
+}
+
+.indicator:last-child {
+  right: 0;
+}
+
