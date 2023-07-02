@@ -7,7 +7,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { UserAdvertsComponent } from './components/user-adverts/user-adverts.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     ModalComponent,
     UserAdvertsComponent,
     SpinnerComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

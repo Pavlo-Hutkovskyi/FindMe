@@ -30,10 +30,10 @@ export class UserService {
         name: "Lvivska oblast",
       }
     }
-    this.pushToStreamUser()
+    this.pushUserToStream()
   }
 
-  pushToStreamUser(user?: IUser) {
+  pushUserToStream(user?: IUser) {
     if(user != undefined)
       this.userStateSubject.next(user)
     else
