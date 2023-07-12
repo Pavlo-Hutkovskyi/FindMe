@@ -4,13 +4,34 @@ import {ModalService} from "../../services/modal/modal.service";
 import {UserService} from "../../services/user/user.service";
 import {Subscription} from "rxjs";
 import {IUserAdvert} from "../../../assets/models/IUserAdvert";
-import {HelpType} from "../../../assets/models/HelpType";
 import {AdvertService} from "../../services/advert/advert.service";
+import {animate, keyframes, query, stagger, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
+  animations: [
+    trigger('swipeAnimation', [
+      transition('* => *', [
+        query(':enter', style({opacity: 0}), {optional: true}),
+
+        query(':enter', stagger('200ms', [
+          animate('0.3s ease-in', keyframes(([
+            style({opacity: 0, transform: 'translateY(-75px)', offset: 0}),
+            style({opacity: 0.5, transform: 'translateY(35px)', offset: 0.3}),
+            style({opacity: 1, transform: 'translateY(0)', offset: 1}),
+          ])))
+        ]), {optional : true})
+      ])
+    ]),
+    trigger('slowFillBlack', [
+      state('no-active', style({backgroundColor: 'white'})),
+      state('active', style({backgroundColor: 'black'})),
+
+      transition('no-active <=> active', animate('500ms ease-in-out'))
+    ])
+  ]
 })
 export class ProfileComponent implements OnInit {
   subscription!: Subscription;
@@ -31,8 +52,10 @@ export class ProfileComponent implements OnInit {
   isMatched = true;
   advertList: IUserAdvert[] = [];
 
-  constructor(private modalService: ModalService, private userService: UserService, private advertService: AdvertService) {
-  }
+  constructor(
+    private modalService: ModalService,
+    private userService: UserService,
+    private advertService: AdvertService) {}
 
   async ngOnInit() {
     this.subscription = this.userService.userState$.subscribe(user => {

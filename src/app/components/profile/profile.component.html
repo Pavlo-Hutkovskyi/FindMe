@@ -1,30 +1,30 @@
-<app-spinner *ngIf="advertList.length == 0"></app-spinner>
-<div class="nav-bar">
-  <p></p>
-  <a (click)="openModal()" class="menu-list">
-    <img src="assets/img/menu-list.svg" alt="menu-list">
-  </a>
-  <app-modal *ngIf="showModal">
-    <p>Ім'я: {{user.firstName}}</p>
-    <p>Призвіще: {{user.lastName}}</p>
-    <p>Номер телефону: {{user.phoneNumber}}</p>
-    <p>Email: {{user.email}}</p>
-    <p>Район: {{user.district.name}}</p>
-  </app-modal>
+<div class="container">
+  <app-spinner *ngIf="advertList.length == 0"></app-spinner>
+  <div class="nav-bar">
+    <a (click)="openModal()" class="menu-list">
+      <img src="assets/img/menu-list.svg" alt="menu-list">
+    </a>
+    <app-modal *ngIf="showModal">
+      <p>Ім'я: {{user.firstName}}</p>
+      <p>Призвіще: {{user.lastName}}</p>
+      <p>Номер телефону: {{user.phoneNumber}}</p>
+      <p>Email: {{user.email}}</p>
+      <p>Район: {{user.district.name}}</p>
+    </app-modal>
+  </div>
+  <div class="profile-card">
+    <!--    <img src="assets/img/profile-round.svg" alt="profile">-->
+    <p><strong>Ім'я:</strong> {{user.firstName}}</p>
+    <p><strong>Призвіще:</strong> {{user.lastName}}</p>
+    <p><strong>Номер телефону:</strong> {{user.phoneNumber}}</p>
+    <p><strong>Email:</strong> {{user.email}}</p>
+    <p><strong>Район:</strong> {{user.district.name}}</p>
+  </div>
+  <div class="slider">
+    <button class="indicator" (click)="swipe()" [class.active]="isMatched" [disabled]="isMatched"></button>
+    <button class="indicator" (click)="swipe()" [class.active]="!isMatched" [disabled]="!isMatched"></button>
+  </div>
+  <div class="adverts-list" (swipe)="swipe()" [@swipeAnimation]="isMatched">
+    <app-user-adverts *ngFor="let advert of getAdvertList()" [advert]="advert"></app-user-adverts>
+  </div>
 </div>
-<div class="profile-card">
-  <img src="assets/img/profile-round.svg" alt="profile">
-  <p>Ім'я: {{user.firstName}}</p>
-  <p>Призвіще: {{user.lastName}}</p>
-  <p>Номер телефону: {{user.phoneNumber}}</p>
-  <p>Email: {{user.email}}</p>
-  <p>Район: {{user.district.name}}</p>
-</div>
-<div class="slider">
-  <button class="indicator" (click)="swipe()" [class.active]="isMatched" [disabled]="isMatched"></button>
-  <button class="indicator" (click)="swipe()" [class.active]="!isMatched" [disabled]="!isMatched"></button>
-</div>
-<div class="adverts-list" (swipe)="swipe()">
-  <app-user-adverts *ngFor="let advert of getAdvertList()" [advert]="advert"></app-user-adverts>
-</div>
-

@@ -8,6 +8,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { UserAdvertsComponent } from './components/user-adverts/user-adverts.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     BrowserModule,
     AppRoutingModule,
     HammerModule,
+    BrowserAnimationsModule,
   ],
   providers: [ModalComponent],
   bootstrap: [AppComponent]

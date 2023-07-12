@@ -1,8 +1,18 @@
 .advert {
-  background-color: black;
+  background: rgba(96,71,223,1);
+  background: linear-gradient(135deg, rgba(96,71,223,1) 0%, rgba(229,204,195,1) 100%);
   font-size: 1.2em;
-  border: 2px white solid;
+  border: 1.5px white solid;
   color: white;
-  width: 80vw;
+  width: 50vw;
   text-align: center;
+  margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 480px) {
+  .advert {
+    border: 1px white solid;
+    width: 80vw;
+  }
 }
